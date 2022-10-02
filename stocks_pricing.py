@@ -59,7 +59,7 @@ st.line_chart(ticker_df.Volume)
 
 with st.expander("See explanation"):
     st.write(f"""
-        - The chart above shows the {stock} stock's closing prices from {start_date} to {end_date}.
+        - The chart above shows the {stock} stock's closing prices from {start_date.strftime("%d %b %Y")} to {end_date.strftime("%d %b %Y")}.
         - It's a line chart and hovering over a particular point will show the details in a tooltip.
         - You can also zoom in and out to play witht the detailing of the chart.
     """)
