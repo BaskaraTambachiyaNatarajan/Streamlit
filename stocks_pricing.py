@@ -16,19 +16,21 @@ Shown are the the Apple Stock's **closing prices** and **volume of shares** trad
 
 col1, col2,col3 = st.columns(3)
 
-ticker_symbol = col1.selectbox("Select stock", ['Apple','Meta','Google','Amazon','Netflix','Tesla'])
+stock = col1.selectbox("Select stock", ['Apple','Meta','Google','Amazon','Netflix','Tesla'])
 
-if ticker_symbol == 'Apple':
+ticker_symbol = 'AAPL'
+
+if stock == 'Apple':
     ticker_symbol = 'AAPL'
-elif ticker_symbol == 'Meta':
+elif stock == 'Meta':
     ticker_symbol = 'META'
-elif ticker_symbol == 'Google':
+elif stock == 'Google':
     ticker_symbol = 'GOOGL'
-elif ticker_symbol == 'Amazon':
+elif stock == 'Amazon':
     ticker_symbol = 'AMZN'
-elif ticker_symbol == 'Netflix':
+elif stock == 'Netflix':
     ticker_symbol = 'NFLX'
-elif ticker_symbol == 'Tesla':
+elif stock == 'Tesla':
     ticker_symbol = 'TSLA'
 
 
@@ -56,8 +58,8 @@ st.line_chart(ticker_df.Volume)
 
 
 with st.expander("See explanation"):
-    st.write("""
-        - The chart above shows the Apple stock's closing prices from 2010-2022.
+    st.write(f"""
+        - The chart above shows the {stock} stock's closing prices from {start_date} to {end_date}.
         - It's a line chart and hovering over a particular point will show the details in a tooltip.
         - You can also zoom in and out to play witht the detailing of the chart.
     """)
