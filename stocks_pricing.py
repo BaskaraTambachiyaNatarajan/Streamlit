@@ -3,7 +3,7 @@ import pandas as pd
 import streamlit as st
 import yfinance as yf
 
-#st.image("./images/apple_log.png",width=100)
+#st.image("./apple_logo.png",width=100)
 
 st.write("""
 
@@ -13,14 +13,30 @@ Shown are the the Apple Stock's **closing prices** and **volume of shares** trad
 
 """)
 
-ticker_symbol = "AAPL"
 
-col1, col2 = st.columns(2)
+col1, col2,col3 = st.columns(3)
 
-with col1:
-   start_date = st.date_input("Enter strating date",datetime.date(2019,1,1))
+ticker_symbol = col1.selectbox("Select stock", ['Apple','Meta','Google','Amazon','Netflix','Tesla'])
+
+if ticker_symbol == 'Apple':
+    ticker_symbol = 'AAPL'
+elif ticker_symbol == 'Meta':
+    ticker_symbol = 'META'
+elif ticker_symbol == 'Google':
+    ticker_symbol = 'GOOGL'
+elif ticker_symbol == 'Amazon':
+    ticker_symbol = 'AMZN'
+elif ticker_symbol == 'Netflix':
+    ticker_symbol = 'NFLX'
+elif ticker_symbol == 'Tesla':
+    ticker_symbol = 'TSLA'
+
+
 
 with col2:
+   start_date = st.date_input("Enter strating date",datetime.date(2019,1,1))
+
+with col3:
     end_date = st.date_input("Enter ending date",datetime.date(2022,1,1))
 
 ticker_data = yf.Ticker(ticker_symbol)
